@@ -1,0 +1,19 @@
+<?php
+
+function loadnode_in_region_menu_alter(&$items) {
+	$items['load_node/%'] = array(
+        'page callback' => 'loadnode_in_region_node_page_view',
+		'page arguments' => array(1),
+		'access callback' => 'user_access',
+    	'access arguments' => array('access content'),
+    	'type' => MENU_CALLBACK,
+    );
+		
+return $items;	
+}
+
+function loadnode_in_region_node_page_view($nid) {
+	$node = node_load($nid, NULL, false);
+	$vnode = node_view($node);
+	return drupal_render($vnode);
+}

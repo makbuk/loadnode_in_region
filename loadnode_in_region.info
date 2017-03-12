@@ -1,0 +1,5 @@
+name = Load node in region
+description = Load node in custom region.
+core = 7.x
+
+scripts[] = loadnode_in_region.js
